@@ -1,0 +1,19 @@
+//mengirim data ke email
+            $name    = "Biro Administrasi Penunjang Akademik Kemahasiswaan (BAPAK)";
+            $to      = $email;
+            $subject = "Formulir Permohonan Pelegalan Motor";
+            $message = "Terima kasih telah menisi data dengan lengkap, berikut kami lampirkan data formulir yang tadi sudah anda kirim ke kami. <br><br> Untuk langkah selanjutnya, silahkan print formulir ini dan serahkan ke kantor BAPAK untuk ditukarkan dengan No Legal kendaraan anda. ";
+
+            $message="From:<b>$name/b> <br />".$message;
+
+            $headers = "MIME-Version: 1.0" . "\r\n";
+            $headers .= "Content-type:text/html;charset=iso-8859-1" . "\r\n";
+
+            // More headers
+            $headers .= 'From: bapak.unida.gontor.ac.id <bapak@unida.gontor.ac.id>'."\r\n" . 'Reply-To: '.$name.' <'.$email.'>'."\r\n";
+            @mail($to,$subject,$message,$headers);
+            if(@mail)
+            {
+                echo "<script>window.alert('Data berhasil di Upload dan Data Permohonan sudah terkirim ke email'); 
+                  window.location = 'upload-data'</script>"; 
+            }

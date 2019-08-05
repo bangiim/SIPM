@@ -1,0 +1,8 @@
+<IfModule mod_rewrite.c>
+Options All -Indexes 
+RewriteEngine on
+RewriteRule ^persyaratan$ index.php
+RewriteRule ^upload-data$ upload-data.php
+RewriteRule ^formulir-(.*)$ save.php?module=laporan&act=view&nim=$1
+
+</IfModule>
